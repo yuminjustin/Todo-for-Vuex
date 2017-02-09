@@ -3,7 +3,7 @@ export default {
 	add:({commit},txt)=>commit('add',txt),
 	update:({dispatch},arr)=>dispatch('getIdx',['update',arr]),
 	select:({dispatch},arr)=>dispatch('getIdx',['select',arr]),
-	changeFilter:({commit},id)=>commit('changeFilter',id),
+	changeFilter:({commit},idx)=>commit('changeFilter',idx),
 	delSelected:({commit})=>commit('delSelected'),
 	selectAll:({commit},bool)=>commit('selectAll',bool),
 	getIdx({commit,state},cfg){
