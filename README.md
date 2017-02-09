@@ -4,4 +4,5 @@
 这个vuex+vue的开发例子只花了大半天的时间，没有查看官方示例，仅仅是看了看API，vuex对于vue来说只是它的插件，没有像redux那样给我一种喧宾夺主的感觉<br/><br/>
 有了vuex之后，bind对象和emit父级事件的次数几乎降为0，代码更简洁<br/><br/>
 操作方式：添加之后，双击修改，点击checkbox删除；（未做本地存储和筛选功能）<br/><br/>
-开发环境：[Vue官方vue-cli ](http://cn.vuejs.org/v2/guide/installation.html#命令行工具)
+开发环境：[Vue官方vue-cli ](http://cn.vuejs.org/v2/guide/installation.html#命令行工具)<br/><br/>
+注意事项：请关闭上述开发环境中的eslint检查，太严格了，经常让人哭笑不得
