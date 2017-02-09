@@ -10,7 +10,7 @@ export default {
 	},
 	update:(state,arr)=>state.todos[arr[0]].text = arr[1],
 	select:(state,arr)=>state.todos[arr[0]].selected = arr[1],
-	changeFilter:(state,id)=>state.filter = idx,
+	changeFilter:(state,idx)=>state.filter = idx,
 	delSelected(state){
 		state.todos = state.todos.filter((todo)=>{
 			return !todo.selected
