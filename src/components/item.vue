@@ -2,7 +2,7 @@
    <li :class="todo.selected?'selected':''" v-show="isShow()">
      <input type="checkbox" class="l db" @click="selectIt" :checked="todo.selected"/>
 	 <span class="db l ellipsis" v-show="!isEdit" @dblclick="editIt">{{todo.text}}</span>
-     <input ref="ipt" type="text" class="l db" v-show="isEdit" :placeholder="todo.text"/>
+     <input v-model="ipt" type="text" class="l db" v-show="isEdit" :placeholder="todo.text"/>
 	 <div class="operate r">
 		<button v-show="!isEdit" @click="delIt">删除</button>
 		<button v-show="isEdit" @click="updateIt">修改</button>
@@ -15,7 +15,8 @@
      props:['todo'],
      data(){
 	    return {
-		   isEdit:!1
+		   isEdit:!1,
+			 ipt:""
 		}
 	 },
 	 methods: {
@@ -26,15 +27,15 @@
 		  this.isEdit = !0
 	   },
 	   updateIt(){
-	      let {ipt} = this.$refs
-	      if(ipt.value){
-		     this.$store.dispatch('update',[this.todo.id,ipt.value])
-			 ipt.value = ""
-			 this.isEdit = !1
+	      let {ipt} = this
+	      if(ipt){
+		     this.$store.dispatch('update',[this.todo.id,ipt])
+			   ipt = ""
+			   this.isEdit = !1
 		  }
 	   },
 	   cancel(){
-	      this.$refs.ipt.value = ""
+	      this.ipt = ""
 	      this.isEdit = !1
 	   },
 	   selectIt(e){
