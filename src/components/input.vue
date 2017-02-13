@@ -3,12 +3,17 @@
 	<label>
 	  <input type="checkbox" class="l db" @click="selectAll" :checked="isAllSelected"> 全选
 	</label>
-	<input ref="ipt" type="text" placeholder="输入需要添加的文字">
+	<input v-model="ipt" type="text" placeholder="输入需要添加的文字">
 	<button @click="add">添加</button>
   </div>
 </template>
 <script>
   export default {
+		 data() {
+      return {
+        ipt: ""
+      }
+    },
      computed:{
 	    isAllSelected(){
 		   let status = !0,
@@ -22,9 +27,9 @@
 	 },
 	 methods:{
 	   add(){
-	      if(this.$refs.ipt.value) {
-		    this.$store.dispatch("add",this.$refs.ipt.value)
-			this.$refs.ipt.value = "" 
+	      if(this.ipt) {
+		    this.$store.dispatch("add",this.ipt)
+			this.ipt = "" 
 		  }
 	   },
 	   selectAll(e){
